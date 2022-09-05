@@ -1,1 +1,25 @@
+name: App1
 
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - '.github/app2/**'
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - '.github/app2/**'
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: |
+        echo "${{ secrets.DOCKERPW }}" | docker login -u "test" --password-stdin
+        docker image build /home/runner/work/.github/app2/ -t manimullapudi/app2:dev 
+        docker push manimullapudi/app2:dev
