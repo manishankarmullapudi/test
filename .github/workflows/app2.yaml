@@ -4,11 +4,11 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - '.github/app2/**'
+      - 'app2/**'
   pull_request:
     branches: [ "main" ]
     paths:
-      - '.github/app2/**'
+      - 'app2/**'
 
 jobs:
 
