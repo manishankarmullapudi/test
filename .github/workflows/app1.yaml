@@ -21,5 +21,5 @@ jobs:
     - name: Build the Docker image
       run: |
         echo "${{ secrets.DOCKERPW }}" | docker login -u "manimullapudi" --password-stdin
-        docker image build /home/runner/work/app1/ -t manimullapudi/app1:dev 
+        docker image build /home/runner/work/test/test/app1/ -t manimullapudi/app1:dev 
         docker push manimullapudi/app1:dev
